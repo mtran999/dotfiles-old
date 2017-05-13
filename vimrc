@@ -25,7 +25,7 @@ if has("autocmd")
     " Use tab/space behavior based on filetype
     au Filetype make setlocal ts=8 sw=8 sts=0 noexpandtab
     au Filetype javascript setlocal ts=2 sw=2 sts=2 et
-    au Filetype php setlocal ts=2 sw=2 sts=2 et
+    au Filetype html setlocal ts=2 sw=2 sts=2 et
 
     " Syntax highlighting for special files
     au BufRead,BufNewFile *.handlebars,*.hbs set filetype=html
@@ -39,6 +39,7 @@ set number              " Line numbers
 set laststatus=2        " Status bar on 2nd to last line
 set ruler               " Show info along bottom
 "set nowrap              " don't wrap text
+set showcmd             " Show keystrokes for each command
 
 " Behavior
 """""""""""
