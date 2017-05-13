@@ -10,19 +10,21 @@
 set ts=4 sw=4 sts=4 et smarttab " Default tab behavior
 
 if has("autocmd")
+    " au = autocmd
+
     " Use filetype detection and file-based automatic indenting
     filetype plugin indent on
 
     " Use tab/space behavior based on filetype
-    autocmd Filetype make setlocal ts=8 sw=8 sts=0 noexpandtab
-    autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
-    autocmd Filetype php setlocal ts=2 sw=2 sts=2 et
+    au Filetype make setlocal ts=8 sw=8 sts=0 noexpandtab
+    au Filetype javascript setlocal ts=2 sw=2 sts=2 et
+    au Filetype php setlocal ts=2 sw=2 sts=2 et
 
     " Turn off automatic insertion of comments upon new line
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
     " Syntax highlighting for special files
-    autocmd BufRead,BufNewFile *.handlebars set filetype=html
+    au BufRead,BufNewFile *.handlebars,*.hbs set filetype=html
 endif
 
 " Appearance
