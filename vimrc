@@ -14,10 +14,16 @@ if has("autocmd")
     " Use filetype detection and file-based automatic indenting
     filetype plugin indent on
 
-    " Use tab/space based on filetype
+    " Use tab/space behavior based on filetype
     autocmd Filetype make setlocal ts=8 sw=8 sts=0 noexpandtab
     autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
     autocmd Filetype php setlocal ts=2 sw=2 sts=2 et
+
+    " Turn off automatic insertion of comments upon new line
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+    " Syntax highlighting for special files
+    autocmd BufRead,BufNewFile *.handlebars set filetype=html
 endif
 
 " Appearance
