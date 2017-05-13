@@ -7,7 +7,6 @@
 "   expandtab (et) - Pressing TAB inserts spaces
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "                   beginning of a line
-
 set ts=4 sw=4 sts=4 et smarttab " Default tab behavior
 
 if has("autocmd")
@@ -27,18 +26,18 @@ if has("autocmd")
 endif
 
 " Appearance
-colorscheme desert      " Set colorscheme
-syntax enable           " Enable syntax highlighting (previously syntax on).
-set number              " Show line numbers
-set laststatus=2        " Show status bar the 2nd to last line
-set ruler               " Always show info along bottom.
+colorscheme desert
+syntax enable           " Syntax highlighting (previously syntax on)
+set number              " Line numbers
+set laststatus=2        " Status bar on 2nd to last line
+set ruler               " Show info along bottom
 
 " Behavior
 set nobomb              " Don't allow byte-order marks (invisible char)
 set ff=unix             " Set fileformat to unix-style line endings
 "set nowrap              " don't wrap text
 if has("clipboard")
-    set clipboard=unnamed   " Copy to system clipboard
+    set clipboard=unnamed   " Copy to system clipboard (if supported)
 endif
 
 " Search
