@@ -68,6 +68,6 @@ set statusline+=%m      " Modified flag
 set statusline+=%=      " Left/right separator
 set statusline+=%r\     " Readonly flag
 set statusline+=%y\     " Filetype
-set statusline+=[%{&ff}] " File format (line ending style)
+set statusline+=[%{&ff}]\  " File format (line ending style)
 set statusline+=%c,\    " Current column
 set statusline+=%l/%L\  " Current/total line
