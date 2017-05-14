@@ -14,7 +14,7 @@ set ts=4 sw=4 sts=4 et smarttab " Default tab behavior
 " Autocommands
 """""""""""""""
 if has("autocmd")
-    " au = autocmd
+    " au = autocmd, ft = filetype
 
     " Use filetype detection and file-based automatic indenting
     filetype plugin indent on
@@ -28,7 +28,8 @@ if has("autocmd")
     au Filetype html setlocal ts=2 sw=2 sts=2 et
 
     " Syntax highlighting for special files
-    au BufRead,BufNewFile *.handlebars,*.hbs set filetype=html
+    au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
+    au BufRead,BufNewFile *.json set ft=javascript
 endif
 
 " Appearance
