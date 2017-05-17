@@ -23,7 +23,7 @@ if has("autocmd")
     au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
     " Use tab/space behavior based on filetype
-    au Filetype make setlocal ts=8 sw=8 sts=0 noexpandtab
+    au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
     au Filetype javascript setlocal ts=2 sw=2 sts=2 et
     au Filetype html setlocal ts=2 sw=2 sts=2 et
 
