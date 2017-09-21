@@ -19,10 +19,15 @@ $ ln -s ~/dotfiles/vimrc ~/.vimrc
 ### 3. Git
 To use git completion and git prompt, update ~/.bashrc with: 
 ```
-[ -r ~/dotfiles/bashrc_git ] && . ~/dotfiles/bashrc_git
+[ -r ~/dotfiles/gitrc ] && . ~/dotfiles/gitrc
 ```
-And stick this somewhere in bash prompt (PS1) variable: 
+And stick this somewhere in bash prompt (PS1) variable:
 `$(__git_ps1 " (%s)")`
+
+For example:
+```
+export PS1='$(__git_ps1 "(%) ")\$ '
+```
 
 See [Git in Bash Documentation](https://git-scm.com/book/be/v2/Git-in-Other-Environments-Git-in-Bash)
 for more info about this.
