@@ -9,7 +9,7 @@
 "   expandtab (et) - Pressing TAB inserts spaces
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "              beginning of a line
-set ts=4 sw=4 sts=4 et smarttab " Default tab behavior
+set ts=4 sw=4 sts=4 smarttab " Default tab behavior
 
 " Autocommands
 """""""""""""""
@@ -26,6 +26,7 @@ if has("autocmd")
     au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
     au Filetype javascript setlocal ts=2 sw=2 sts=2 et
     au Filetype html setlocal ts=2 sw=2 sts=2 et
+		au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
 
     " Syntax highlighting for special files
     au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
@@ -35,12 +36,15 @@ endif
 " Appearance
 """""""""""""
 colorscheme desert
-syntax enable           " Syntax highlighting (previously syntax on)
+if !exists("g:syntax_on")
+   syntax enable           " Syntax highlighting (previously syntax on)
+endif
 set number              " Line numbers
 set laststatus=2        " Status bar on 2nd to last line
 set ruler               " Show info along bottom
-"set nowrap              " don't wrap text
+"set nowrap              " Don't wrap text
 set showcmd             " Show keystrokes for each command
+set showmode
 
 " Behavior
 """""""""""
@@ -53,6 +57,7 @@ set splitbelow          " Open new splits below
 set splitright          " Open new splits to the right
 " Save swap files in a specific directory (rather than the current one)
 "set directory=~/.vim/swapfiles//
+set visualbell          " Blink cursor on error (instead of annoying sound)
 
 " Search
 """""""""
