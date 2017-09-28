@@ -9,35 +9,35 @@
 "   expandtab (et) - Pressing TAB inserts spaces
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "              beginning of a line
-set ts=4 sw=4 sts=4 smarttab " Default tab behavior
+set ts=2 sw=2 sts=2 smarttab " Default tab behavior
 
 " Autocommands
 """""""""""""""
 if has("autocmd")
-    " au = autocmd, ft = filetype
+	" au = autocmd, ft = filetype
 
-    " Use filetype detection and file-based automatic indenting
-    filetype plugin indent on
+	" Use filetype detection and file-based automatic indenting
+	filetype plugin indent on
 
-    " Turn off automatic insertion of comments upon new line
-    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	" Turn off automatic insertion of comments upon new line
+	au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-    " Use tab/space behavior based on filetype
-    au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
-    au Filetype javascript setlocal ts=2 sw=2 sts=2 et
-    au Filetype html setlocal ts=2 sw=2 sts=2 et
-		au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
+	" Use tab/space behavior based on filetype
+	au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
+	au Filetype javascript setlocal ts=2 sw=2 sts=2 et
+	au Filetype html setlocal ts=2 sw=2 sts=2 et
+	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 "et
 
-    " Syntax highlighting for special files
-    au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
-    au BufRead,BufNewFile *.json set ft=javascript
+	" Syntax highlighting for special files
+	au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
+	au BufRead,BufNewFile *.json set ft=javascript
 endif
 
 " Appearance
 """""""""""""
 colorscheme desert
 if !exists("g:syntax_on")
-   syntax enable           " Syntax highlighting (previously syntax on)
+	syntax enable           " Syntax highlighting (previously syntax on)
 endif
 set number              " Line numbers
 set laststatus=2        " Status bar on 2nd to last line
@@ -46,12 +46,25 @@ set ruler               " Show info along bottom
 set showcmd             " Show keystrokes for each command
 set showmode
 
+" Netrw Directory Explorer
+let g:netrw_banner = 0	" No directory explorer banner
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4 " Open new files in prev window
+let g:netrw_altv = 1
+let g:netrw_winsize = 20 " Take up 20% of screen
+"let g:netrw_preview = 1 " Enable file preview with p, Ctrl+W+z to close
+" Automatically open netrw
+"augroup ProjectDrawer
+"	autocmd!
+"	autocmd VimEnter * :Vexplore
+"augroup END
+
 " Behavior
 """""""""""
 set nobomb              " Don't allow byte-order marks (invisible char)
 set ff=unix             " Set fileformat to unix-style line endings
 if has("clipboard")
-    set clipboard=unnamed " Copy to system clipboard (if supported)
+	set clipboard=unnamed " Copy to system clipboard (if supported)
 endif
 set splitbelow          " Open new splits below
 set splitright          " Open new splits to the right
