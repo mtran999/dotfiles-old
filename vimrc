@@ -24,9 +24,9 @@ if has("autocmd")
 
 	" Use tab/space behavior based on filetype
 	au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
-	au Filetype javascript setlocal ts=2 sw=2 sts=2 et
-	au Filetype html setlocal ts=2 sw=2 sts=2 et
-	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 "et
+	"au Filetype javascript setlocal ts=2 sw=2 sts=2 et
+	"au Filetype html setlocal ts=2 sw=2 sts=2 et
+	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
 
 	" Syntax highlighting for special files
 	au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
@@ -47,11 +47,12 @@ set showcmd             " Show keystrokes for each command
 set showmode
 
 " Netrw Directory Explorer
+" Use :Vex command to open
 let g:netrw_banner = 0	" No directory explorer banner
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4 " Open new files in prev window
 let g:netrw_altv = 1
-let g:netrw_winsize = 20 " Take up 20% of screen
+let g:netrw_winsize = 25 " Take up 25% of screen
 "let g:netrw_preview = 1 " Enable file preview with p, Ctrl+W+z to close
 " Automatically open netrw
 "augroup ProjectDrawer
