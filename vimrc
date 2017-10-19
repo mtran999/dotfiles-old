@@ -24,7 +24,7 @@ if has("autocmd")
 
 	" Use tab/space behavior based on filetype
 	au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
-	"au Filetype javascript setlocal ts=2 sw=2 sts=2 et
+	au Filetype javascript setlocal ts=2 sw=2 sts=2 et
 	"au Filetype html setlocal ts=2 sw=2 sts=2 et
 	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
 
