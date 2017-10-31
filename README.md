@@ -5,29 +5,20 @@ This repo is mostly for personal use. But anyone is free to use this stuff.
 
 ## Instructions
 ### 1. Clone
-First off, clone repo to home directory.
+Clone repo to home directory.
 ```
+$ cd
 $ git clone https://github.com/mintyfwesh/dotfiles.git
 ```
 
 ### 2. Vim
-To use vimrc, create a symlink to it.
+To use vimrc, create symlink to it.
 ```
 $ ln -s ~/dotfiles/vimrc ~/.vimrc
 ```
 
-### 3. Git
-To use git completion and git prompt, update ~/.bashrc with: 
+### 3. Bash
+Add line to ~/.bashrc (on Linux) or ~/.bash_profile (on macOS) : 
 ```
-[ -r ~/dotfiles/gitrc ] && . ~/dotfiles/gitrc
+[[ -r ~/dotfiles/bashrc ]] && . ~/dotfiles/bashrc
 ```
-And stick this somewhere in bash prompt (PS1) variable:
-`$(__git_ps1 " (%s)")`
-
-For example:
-```
-export PS1='$(__git_ps1 "(%) ")\$ '
-```
-
-See [Git in Bash Documentation](https://git-scm.com/book/be/v2/Git-in-Other-Environments-Git-in-Bash)
-for more info about this.
