@@ -72,6 +72,7 @@ set splitright          " Open new splits to the right
 " Save swap files in a specific directory (rather than the current one)
 "set directory=~/.vim/swapfiles//
 set visualbell          " Blink cursor on error (instead of annoying sound)
+set backspace=indent,eol,start " Backspace deletes everything
 
 " Search
 """""""""
