@@ -12,4 +12,5 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export HOMEBREW_NO_ANALYTICS=1
 
 ## Prompt
-export PS1='$(__git_ps1 "(%s) ")$([[ $? -eq 0 ]] && echo ":]" || echo ":[") \$ '
+_emot() { if [[ $? -eq 0 ]]; then echo ":]"; else echo ":["; fi }
+export PS1='$(_emot) $(__git_ps1 "(%s) ")\$ '
