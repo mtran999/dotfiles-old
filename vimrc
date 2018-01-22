@@ -2,6 +2,11 @@
 " mintyfwesh minimal vimrc "
 """"""""""""""""""""""""""""
 
+" Aliases
+""""""""""
+" Fast go to buffer x
+nnoremap gb :ls<CR>:b<Space>
+
 " Explanation of Tab Settings
 "   tabstop (ts) - Default width of an actual TAB
 "   shiftwidth (sw) - Width of an indent
@@ -42,12 +47,13 @@ endif
 set number              " Line numbers
 set laststatus=2        " Status bar on 2nd to last line
 set ruler               " Show info along bottom
-"set nowrap              " Don't wrap text
+set nowrap              " Don't wrap text
 set showcmd             " Show keystrokes for each command
 set showmode
 
 " Netrw Directory Explorer
-" Use :Vex command to open
+" Use :e. or :edit . to open in current window (recommended)
+" Use :Vex command to open in split
 let g:netrw_banner = 0	" No directory explorer banner
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4 " Open new files in prev window
@@ -73,12 +79,13 @@ set splitright          " Open new splits to the right
 "set directory=~/.vim/swapfiles//
 set visualbell          " Blink cursor on error (instead of annoying sound)
 set backspace=indent,eol,start " Backspace deletes everything
+set nohidden            " Buffers will be actually closed and not hidden
 
 " Search
 """""""""
 set nohlsearch          " Don't continue to highlight searched phrases.
 set ignorecase          " Make searches case-insensitive.
-" Change search highlighting (default is hard to read)
+" Change search highlighting (default can be hard to read)
 "highlight Search ctermfg=3 ctermbg=0
 
 " Statusline
