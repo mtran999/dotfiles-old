@@ -30,8 +30,9 @@ if has("autocmd")
 	" Use tab/space behavior based on filetype
 	au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
 	au Filetype javascript setlocal ts=2 sw=2 sts=2 et
-	"au Filetype html setlocal ts=2 sw=2 sts=2 et
+	au Filetype html setlocal ts=2 sw=2 sts=2 noexpandtab
 	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
+	au Filetype cpp setlocal ts=2 sw=2 st=2 sts=2 et
 
 	" Syntax highlighting for special files
 	au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
@@ -47,9 +48,10 @@ endif
 set number              " Line numbers
 set laststatus=2        " Status bar on 2nd to last line
 set ruler               " Show info along bottom
-set nowrap              " Don't wrap text
+"set nowrap              " Don't wrap text
 set showcmd             " Show keystrokes for each command
 set showmode
+set colorcolumn=81      " Highlights column 81, etc.
 
 " Netrw Directory Explorer
 " Use :e. or :edit . to open in current window (recommended)
