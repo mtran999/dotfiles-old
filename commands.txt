@@ -6,6 +6,7 @@ Reference for useful commands
 
 # bash
 du -sh ~/* | sort -rh     # List /~ dirs in order of disk usage
+                          # Note: sort doesn't have -h on macOS
 
 # npm
 npm ls -g --depth=0       # List top-level npm global packages
