@@ -1,11 +1,12 @@
 ### Custom bashrc! Whooo
+DOTDIR=~/.dotfiles
 
 ## Aliases
 alias ls='ls -GFh' # where G=color, F=filetypes, h=human-readable
 
 ## Git
-. ~/dotfiles/git-completion.bash
-. ~/dotfiles/git-prompt.sh
+. $DOTDIR/git-completion.bash
+. $DOTDIR/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 ## Homebrew
