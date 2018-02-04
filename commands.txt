@@ -1,7 +1,11 @@
 Reference for useful commands
 =============================
 # Organized by sections:
+- bash
 - npm
 
+# bash
+du -sh ~/* | sort -rh     # List /~ dirs in order of disk usage
+
 # npm
-npm ls -g --depth=0     # List top-level npm global packages
+npm ls -g --depth=0       # List top-level npm global packages
