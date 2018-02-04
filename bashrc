@@ -2,7 +2,6 @@
 
 ## Aliases
 alias ls='ls -GFh' # where G=color, F=filetypes, h=human-readable
-alias npmls='npm ls -g --depth=0'
 
 ## Git
 . ~/dotfiles/git-completion.bash
