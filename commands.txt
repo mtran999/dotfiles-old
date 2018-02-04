@@ -1,0 +1,7 @@
+Reference for useful commands
+=============================
+# Organized by sections:
+- npm
+
+# npm
+npm ls -g --depth=0     # List top-level npm global packages
