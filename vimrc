@@ -2,7 +2,10 @@
 " mintyfwesh minimal vimrc "
 """"""""""""""""""""""""""""
 
-" Aliases
+" Disable vi 'compatible' mode, enables a lot of features
+set nocp  "(nocompatible) 
+
+"" Aliases
 """"""""""
 " Fast go to buffer x
 nnoremap gb :ls<CR>:b<Space>
@@ -12,11 +15,13 @@ nnoremap gb :ls<CR>:b<Space>
 "   shiftwidth (sw) - Width of an indent
 "   softtabstop (sts) - Width/columns of a TAB (whether tabs or spaces)
 "   expandtab (et) - Pressing TAB inserts spaces
+"   noexpandtab (noet) - Pressing TAB inserts actual tab
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "              beginning of a line
-set ts=2 sw=2 sts=2 smarttab " Default tab behavior
+set et ts=2 sw=2 sts=2 smarttab  " Default tab behavior
+set ai  " autoindent
 
-" Autocommands
+"" Autocommands
 """""""""""""""
 if has("autocmd")
 	" au = autocmd, ft = filetype
@@ -28,9 +33,9 @@ if has("autocmd")
 	au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 	" Use tab/space behavior based on filetype
-	au Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
+	au Filetype make setlocal ts=4 sw=4 sts=0 noet
 	au Filetype javascript setlocal ts=2 sw=2 sts=2 et
-	au Filetype html setlocal ts=2 sw=2 sts=2 noexpandtab
+	au Filetype html setlocal ts=2 sw=2 sts=2 noet
 	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
 	au Filetype cpp setlocal ts=2 sw=2 st=2 sts=2 et
 
@@ -39,58 +44,57 @@ if has("autocmd")
 	au BufRead,BufNewFile *.json set ft=javascript
 endif
 
-" Appearance
+"" Appearance
 """""""""""""
 colorscheme desert
 if !exists("g:syntax_on")
 	syntax enable           " Syntax highlighting (previously syntax on)
 endif
-set number              " Line numbers
-set laststatus=2        " Status bar on 2nd to last line
-set ruler               " Show info along bottom
-"set nowrap              " Don't wrap text
-set showcmd             " Show keystrokes for each command
-set showmode
-set colorcolumn=81      " Highlights column 81, etc.
 
-" Netrw Directory Explorer
+set number          " Line numbers
+set laststatus=2    " Status line/bar on 2nd to last line
+set wildmenu        " Shows command completions in status line
+set ruler           " Show info along bottom
+"set nowrap          " Don't wrap text
+set showcmd         " Show keystrokes for each command
+set showmode
+set colorcolumn=81  " Highlights column 81, etc.
+
+"" Netrw Directory Explorer
 " Use :e. or :edit . to open in current window (recommended)
 " Use :Vex command to open in split
-let g:netrw_banner = 0	" No directory explorer banner
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4 " Open new files in prev window
-let g:netrw_altv = 1
-let g:netrw_winsize = 25 " Take up 25% of screen
-"let g:netrw_preview = 1 " Enable file preview with p, Ctrl+W+z to close
-" Automatically open netrw
-"augroup ProjectDrawer
-"	autocmd!
-"	autocmd VimEnter * :Vexplore
-"augroup END
 
-" Behavior
+"" Behavior
 """""""""""
-set nobomb              " Don't allow byte-order marks (invisible char)
-set ff=unix             " Set fileformat to unix-style line endings
 if has("clipboard")
 	set clipboard=unnamed " Copy to system clipboard (if supported)
 endif
-set splitbelow          " Open new splits below
-set splitright          " Open new splits to the right
+
 " Save swap files in a specific directory (rather than the current one)
 "set directory=~/.vim/swapfiles//
-set visualbell          " Blink cursor on error (instead of annoying sound)
-set backspace=indent,eol,start " Backspace deletes everything
-set nohidden            " Buffers will be actually closed and not hidden
 
-" Search
+set nobomb       " Don't allow byte-order marks (invisible char)
+set ff=unix      " Set fileformat to unix-style line endings
+set splitbelow   " Open new splits below
+set splitright   " Open new splits to the right
+set vb           " (visualbell) blink cursor on error
+set noeb         " (noerrorbells) Turn off bell sound
+set bs=2         " (backspace) deletes indent, eol, start
+set nohidden     " Buffers will be actually closed and not hidden
+set fo=cqrt      " (formatoptions) Newline will continue comments
+set ww=<,>,h,l   " (whichwrap) left, right can move cursor onto
+                   " next line instead of stopping
+set nosol        " (nostartofline) Cursor stays in the same column
+                   " when running commands like gg
+
+"" Search
 """""""""
 set nohlsearch          " Don't continue to highlight searched phrases.
 set ignorecase          " Make searches case-insensitive.
 " Change search highlighting (default can be hard to read)
 "highlight Search ctermfg=3 ctermbg=0
 
-" Statusline
+"" Statusline
 """""""""""""
 " For more info, see :help statusline
 set statusline=(%n)\    " Buffer number
