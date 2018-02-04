@@ -18,7 +18,7 @@ nnoremap gb :ls<CR>:b<Space>
 "   noexpandtab (noet) - Pressing TAB inserts actual tab
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "              beginning of a line
-set et ts=2 sw=2 sts=2 smarttab  " Default tab behavior
+set ts=4 sw=4 sts=4 smarttab et  " Default tab behavior
 set ai  " autoindent
 
 "" Autocommands
