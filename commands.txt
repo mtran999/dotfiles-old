@@ -3,10 +3,17 @@ Reference for useful commands
 # Organized by sections:
 - bash
 - npm
+- tmux
 
 # bash
-du -sh ~/* | sort -rh     # List /~ dirs in order of disk usage
-                          # Note: sort doesn't have -h on macOS
+du -sh ~/* | sort -rh       # List /~ dirs in order of disk usage
+                            # Note: sort doesn't have -h on macOS
 
 # npm
-npm ls -g --depth=0       # List top-level npm global packages
+npm ls -g --depth=0         # List top-level npm global packages
+
+# tmux
+# PREFIX is usually Ctrl-B
+PREFIX : resize-pane -D     # Resizes the current pane down
+                            # -D can be one of (-D, -U, -L, -R)
+PREFIX : resize-pane -D 20  # Resizes the current pane down by 20 cells
