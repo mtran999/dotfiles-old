@@ -4,6 +4,7 @@
 [alias]
     a = add
     aa = add -A
+    c = commit
     cm = commit -m
     s = status
     rf = !git reset --hard HEAD && git clean -d -f
