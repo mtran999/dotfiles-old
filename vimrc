@@ -18,7 +18,7 @@ nnoremap gb :ls<CR>:b<Space>
 "   noexpandtab (noet) - Pressing TAB inserts actual tab
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "              beginning of a line
-set ts=4 sw=4 sts=4 smarttab et  " Default tab behavior
+set ts=2 sw=2 sts=2 smarttab et  " Default tab behavior
 set ai  " autoindent
 
 "" Autocommands
@@ -75,6 +75,8 @@ endif
 
 set nobomb       " Don't allow byte-order marks (invisible char)
 set ff=unix      " Set fileformat to unix-style line endings
+set ffs=unix,mac,dos  " Specify which fileformats to check when opening files
+                      "   The first ffs is also the one used for new buffers
 set splitbelow   " Open new splits below
 set splitright   " Open new splits to the right
 set vb           " (visualbell) blink cursor on error
@@ -83,9 +85,9 @@ set bs=2         " (backspace) deletes indent, eol, start
 set nohidden     " Buffers will be actually closed and not hidden
 set fo=cqrt      " (formatoptions) Newline will continue comments
 set ww=<,>,h,l   " (whichwrap) left, right can move cursor onto
-                   " next line instead of stopping
+                 "   next line instead of stopping
 set nosol        " (nostartofline) Cursor stays in the same column
-                   " when running commands like gg
+                 "   when running commands like gg
 
 "" Search
 """""""""
