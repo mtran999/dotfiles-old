@@ -2,7 +2,8 @@ Reference for useful commands
 =============================
 # Organized by sections:
 - bash (misc.)
-- npm
+- node/npm
+- ruby/gem
 - tmux
 
 # bash
@@ -12,8 +13,11 @@ du -sh ~/* | sort -rh       # List home dirs in order of disk usage
 Enter, ~, ?                 # SSH list escape sequences
 Enter, ~, .                 # SSH terminate session (useful when frozen)
 
-# npm
+# node/npm
 npm ls -g --depth=0         # List top-level npm global packages
+
+# ruby/gem
+gem uninstall --all --force # Uninstall all gems
 
 # tmux
 # PREFIX is usually Ctrl-B
