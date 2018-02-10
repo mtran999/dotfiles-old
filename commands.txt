@@ -17,7 +17,7 @@ Enter, ~, .                 # SSH terminate session (useful when frozen)
 npm ls -g --depth=0         # List top-level npm global packages
 
 # ruby/gem
-gem uninstall --all --force # Uninstall all gems
+gem uninstall -aIx          # Uninstall all vers, ignore deps, include execs
 
 # tmux
 # PREFIX is usually Ctrl-B
