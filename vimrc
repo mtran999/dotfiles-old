@@ -12,8 +12,9 @@ nnoremap gb :ls<CR>:b<Space>
 
 " Explanation of Tab Settings
 "   tabstop (ts) - Default width of an actual TAB
-"   shiftwidth (sw) - Width of an indent
+"   shiftwidth (sw) - Width of an indent level
 "   softtabstop (sts) - Width/columns of a TAB (whether tabs or spaces)
+"     Makes backspace delete (sts) number of spaces at once
 "   expandtab (et) - Pressing TAB inserts spaces
 "   noexpandtab (noet) - Pressing TAB inserts actual tab
 "   smarttab - Pressing TAB indents to the next tabstop when at the
@@ -24,24 +25,26 @@ set ai  " autoindent
 "" Autocommands
 """""""""""""""
 if has("autocmd")
-	" au = autocmd, ft = filetype
+	" au = autocmd, setl = setlocal, ft = filetype
 
 	" Use filetype detection and file-based automatic indenting
 	filetype plugin indent on
 
 	" Turn off automatic insertion of comments upon new line
-	au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	au FileType * setl formatoptions-=c formatoptions-=r formatoptions-=o
 
 	" Use tab/space behavior based on filetype
-	au Filetype make setlocal ts=4 sw=4 sts=0 noet
-	au Filetype javascript setlocal ts=2 sw=2 sts=2 et
-	au Filetype html setlocal ts=2 sw=2 sts=2 noet
-	au Filetype python setlocal ts=4 sw=4 st=4 sts=4 et
-	au Filetype cpp setlocal ts=2 sw=2 st=2 sts=2 et
+	au FileType make setl noet
+
+	au FileType javascript,json setl ts=2 sw=2 sts=2 et
+	au FileType html setl ts=2 sw=2 sts=2 noet
+	au FileType css,scss,sass setl ts=2 sw=2 sts=2 noet
+
+	au FileType python setl ts=4 sw=4 sts=4 et
+	au FileType cpp setl ts=2 sw=2 sts=2 et
 
 	" Syntax highlighting for special files
 	au BufRead,BufNewFile *.handlebars,*.hbs set ft=html
-	au BufRead,BufNewFile *.json set ft=javascript
 endif
 
 "" Appearance
