@@ -36,10 +36,10 @@ if has("autocmd")
 	" Use tab/space behavior based on filetype
 	au FileType make setl noet
 
-	au FileType javascript,json setl ts=2 sw=2 sts=2 et
-	au FileType html setl ts=2 sw=2 sts=2 noet
-	au FileType css,scss,sass setl ts=2 sw=2 sts=2 noet
-  au FileType markdown setl ts=2 sw=2 sts=2 noet
+	"au FileType javascript,json setl ts=2 sw=2 sts=2 et
+	"au FileType html setl ts=2 sw=2 sts=2 et
+	"au FileType css,scss,sass setl ts=2 sw=2 sts=2 et
+  "au FileType markdown setl ts=2 sw=2 sts=2 et
 
 	au FileType python setl ts=4 sw=4 sts=4 et
 	au FileType cpp setl ts=2 sw=2 sts=2 et
