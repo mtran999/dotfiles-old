@@ -1,20 +1,25 @@
 Reference for useful commands
 =============================
 # Organized by sections:
-- bash (misc.)
+- git
 - node/npm
+- python
 - ruby/gem
 - tmux
+- misc.
 
-# bash
-# Miscellaneous bash commands/sequences
-du -sh ~/* | sort -rh       # List home dirs in order of disk usage
-                            # Note: sort doesn't have -h on macOS
-Enter, ~, ?                 # SSH list escape sequences
-Enter, ~, .                 # SSH terminate session (useful when frozen)
+# git
+git submodule add <url>     # Add sub-repo
+git submodule update --init --recursive
+                            # Download sub-repo (not needed on new versions
+                            # of git, it's automatic)
+git clone --recursive <url> # Clone repo and submodules
 
 # node/npm
 npm ls -g --depth=0         # List top-level npm global packages
+
+# python/pip
+python -m cProfile -s time script.py # Profile script.py and sort by time
 
 # ruby/gem
 gem uninstall -aIx          # Uninstall all vers, ignore deps, include execs
@@ -25,4 +30,10 @@ PREFIX : resize-pane -D     # Resizes the current pane down
                             # -D can be one of (-D, -U, -L, -R)
 PREFIX : resize-pane -D 20  # Resizes the current pane down by 20 cells
 PREFIX, Ctrl-<arrow>        # Resizes current pane in direction of <arrow>
+
+# misc. (miscellaneous bash commands)
+du -sh ~/* | sort -rh       # List home dirs in order of disk usage
+                            # Note: sort doesn't have -h on macOS
+Enter, ~, ?                 # SSH list escape sequences
+Enter, ~, .                 # SSH terminate session (useful when frozen)
 
