@@ -18,6 +18,8 @@ git log --pretty=oneline    # (alias: ls) List commits with one line each
 git log -1 HEAD             # (alias: last) Display last commit
 git log --graph --decorate --pretty=oneline --abbrev-commit --all
                             # (alias: graph) Display pretty graph of commits
+git remote -v               # Display remote URLs
+git remote set-url origin URL # Update existing remote URL
 
 # node/npm
 npm ls -g --depth=0         # List top-level npm global packages
