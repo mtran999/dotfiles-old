@@ -14,6 +14,10 @@ git submodule update --init --recursive
                             # Download sub-repo (not needed on new versions
                             # of git, it's automatic)
 git clone --recursive <url> # Clone repo and submodules
+git log --pretty=oneline    # (alias: ls) List commits with one line each
+git log -1 HEAD             # (alias: last) Display last commit
+git log --graph --decorate --pretty=oneline --abbrev-commit --all
+                            # (alias: graph) Display pretty graph of commits
 
 # node/npm
 npm ls -g --depth=0         # List top-level npm global packages
@@ -23,6 +27,10 @@ python -m cProfile -s time script.py # Profile script.py and sort by time
 
 # ruby/gem
 gem uninstall -aIx          # Uninstall all vers, ignore deps, include execs
+
+# ssh
+Enter, ~, ?                 # SSH list escape sequences
+Enter, ~, .                 # SSH terminate session (useful when frozen)
 
 # tmux
 # PREFIX is usually Ctrl-B
@@ -34,6 +42,5 @@ PREFIX, Ctrl-<arrow>        # Resizes current pane in direction of <arrow>
 # misc. (miscellaneous bash commands)
 du -sh ~/* | sort -rh       # List home dirs in order of disk usage
                             # Note: sort doesn't have -h on macOS
-Enter, ~, ?                 # SSH list escape sequences
-Enter, ~, .                 # SSH terminate session (useful when frozen)
-
+ls -GFhH                    # G = color, F = filetypes, h = human-readable,
+                            # H = follow-symlinks
