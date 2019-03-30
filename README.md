@@ -20,5 +20,5 @@ $ ln -s ~/.dotfiles/editorconfig ~/.editorconfig
 ### 3. Bash
 To use the bashrc, add this line to ~/.bashrc (on Linux) or ~/.bash_profile (on macOS): 
 ```
-[ -r ~/dotfiles/bashrc ] && . ~/.dotfiles/bashrc
+[ -r ~/.dotfiles/bashrc ] && . ~/.dotfiles/bashrc
 ```
