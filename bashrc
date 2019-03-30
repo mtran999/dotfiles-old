@@ -36,7 +36,8 @@ export PIPENV_VENV_IN_PROJECT=1
 ## Prompt
 _emot() { if [[ $? -eq 0 ]]; then echo "{^-^}"; else echo "{'A'}"; fi }
 _errno() { echo "[$?]"; }
-export PS1='$(__git_ps1 "(%s) ")$(_emot) \$ '
+#export PS1='$(__git_ps1 "(%s) ")$(_emot) \$ '
+export PS1='$(__git_ps1 "(%s) ")\W \$ '
 
 ## Python
 #env_dir=env/bin/activate
