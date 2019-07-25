@@ -14,7 +14,7 @@
 
 ## Aliases
 alias ls='ls -GFhH' # where G=color, F=filetypes, h=human-readable, H=follow-symlinks
-alias venv='source env/bin/activate'
+alias venv='source venv/bin/activate'
 
 ## Git
 DOTDIR=~/.dotfiles
@@ -28,6 +28,7 @@ export HOMEBREW_NO_ANALYTICS=1
 ## Path
 PATH="$PATH:$HOME/bin"              # For personal scripts
 PATH="$PATH:/Library/TeX/texbin"    # For TeX packages
+PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin" # For ruby gems
 export PATH
 
 ## Pipenv
@@ -36,7 +37,10 @@ export PIPENV_VENV_IN_PROJECT=1
 ## Prompt
 _emot() { if [[ $? -eq 0 ]]; then echo "{^-^}"; else echo "{'A'}"; fi }
 _errno() { echo "[$?]"; }
-export PS1='$(__git_ps1 "(%s) ")$(_emot) \$ '
+#PS1='$(__git_ps1 "(%s) ")$(_emot) \$ '
+PS1='\W \$ '
+PS1='$(__git_ps1 "(%s) ")'$PS1
+export PS1
 
 ## Python
 #env_dir=env/bin/activate
