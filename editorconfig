@@ -1,4 +1,4 @@
-# http://editorconfig.org
+# https://editorconfig.org
 
 # top-most EditorConfig file
 root = true
@@ -16,11 +16,11 @@ indent_style = space
 indent_size = 4
 insert_final_newline = true
 
-#[*.{c,cc,cpp}]
-#insert_final_newline = true
+[*.{h,hpp,c,cc,cpp}]
+insert_final_newline = true
 
 [{GNUmakefile,makefile,Makefile}]
 indent_style = tab
 
-[*.{js,jsx,css,html}]
+[*.{html,css,js,jsx,json}]
 indent_size = 2
