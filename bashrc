@@ -1,48 +1,32 @@
-# Custom bashrc! Whooo
+# Custom bashrc
 
-#####################
-# Table of Contents #
-#####################
-# - Aliases
-# - Git
-# - Homebrew
-# - Path
-# - Pipenv
-# - Prompt
-# - Python
-# - Vagrant
+# Aliases
+#alias ls='ls -GFhH' # where G=color, F=filetypes, h=human-readable, H=follow-symlinks
+alias activate='source venv/bin/activate'
 
-## Aliases
-alias ls='ls -GFhH' # where G=color, F=filetypes, h=human-readable, H=follow-symlinks
-alias venv='source venv/bin/activate'
-
-## Git
-DOTDIR=~/.dotfiles
-. $DOTDIR/git-completion.bash
-. $DOTDIR/git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
-
-## Homebrew
+# Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 
-## Path
+# Path
 PATH="$PATH:$HOME/bin"              # For personal scripts
 PATH="$PATH:/Library/TeX/texbin"    # For TeX packages
 PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin" # For ruby gems
 export PATH
 
-## Pipenv
-export PIPENV_VENV_IN_PROJECT=1
+# Git
+#. $HOME/.dotfiles/git-completion.bash
+#. $HOME/.dotfiles/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
 
-## Prompt
-_emot() { if [[ $? -eq 0 ]]; then echo "{^-^}"; else echo "{'A'}"; fi }
-_errno() { echo "[$?]"; }
-#PS1='$(__git_ps1 "(%s) ")$(_emot) \$ '
+# Prompt
+_errno() { printf "[%03d]\n" $?; }
 PS1='\W \$ '
+PS1='$(_errno) '$PS1
 PS1='$(__git_ps1 "(%s) ")'$PS1
 export PS1
+#export PS1='$(__git_ps1 "(%s) ")$(_errno) '$PS1
 
-## Python
+# Python
 #env_dir=env/bin/activate
 #_venv() {
 #  if [[ $# -eq 0 ]]; then
@@ -63,7 +47,9 @@ export PS1
 #}
 #alias venv=_venv
 
-## Vagrant
+# Vagrant
 # Disable shared folder symlinks by default
 #VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
+# Pipenv
+#export PIPENV_VENV_IN_PROJECT=1

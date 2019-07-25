@@ -3,25 +3,35 @@
 # mkdot.sh
 # Set up symlinks for dotfiles
 
-old_dir=~/.dotfiles.old
-dotfiles=vimrc gitconfig tmux.conf
+dotfiles="vim editorconfig tmux.conf"
+gitfiles="git-completion.bash git-prompt-sh"
 
-# Make .dotfiles.old to store existing dotfiles (if any)
-if [ -d $old_dir ]; then
-    mkdir $old_dir
-    echo "Created $old_dir"
+# Check for existing dotfiles
+existing=""
+for f in $dotfiles; do
+    fn="$HOME/.$f"
+    if [ -e "$fn" ]; then
+        existing+="$fn "
+    fi
+done
+
+if [ ! -z "$existing" ]; then
+    echo "Warning: Existing files will get overwritten"
+    echo "Please move these files before running the script:"
+    for f in $existing; do
+        echo "  $f"
+    done
+    exit 1
 fi
 
 # Make symlinks for each dotfile
-for dotf in dotfiles; do
-    curr_path=~/.$dotf
-    # If dotfile exists, move it to old_dir
-    if [ -f $curr_path ]; then
-        mv $curr_path $old_dir
-        echo "Moved existing $curr_path to $old_dir"
+curdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+for f in $dotfiles; do
+    from="$curdir/$f"
+    to="$HOME/.$f"
+    if ln -s "$from" "$to"; then
+        echo "Successfully symlinked: $from -> $to"
+    else
+        echo "Unable to symlink: $from -> $to"
     fi
-    # Make symlink
-    ln -s $dotf $curr_path
-    echo "Linked $dotf"
 done
-
