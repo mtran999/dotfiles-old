@@ -1,5 +1,5 @@
-Reference for useful commands
-=============================
+# Reference for useful commands
+
 # Organized by sections:
 - git
 - node/npm
@@ -19,7 +19,14 @@ git log -1 HEAD             # (alias: last) Display last commit
 git log --graph --decorate --pretty=oneline --abbrev-commit --all
                             # (alias: graph) Display pretty graph of commits
 git remote -v               # Display remote URLs
-git remote set-url origin URL # Update existing remote URL
+git remote set-url <remote_name> <url>
+                            # Update existing remote URL
+                            # <remote_name> is typically "origin"
+git branch -a               # List local and remote branches
+git branch -d <branch_name> # Delete local branch
+git branch -D <branch_name> # Forcefully delete local branch
+git push <remote_name> --delete <branch_name>
+                            # Delete remote branch
 
 # node/npm
 npm ls -g --depth=0         # List top-level npm global packages
