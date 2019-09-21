@@ -34,9 +34,8 @@ _errno() {
     fi
 }
 PS1_errno='$(_errno)'
-PS1_git='$(__git_ps1 "(%s) ")'
+PS1_git=$yellow'$(__git_ps1 "(%s) ")'$reset
 export PS1="$PS1_git$PS1_errno \W \$ "
-#export PS1='$(__git_ps1 "(%s) ")$(_errno) '$PS1
 
 # Vagrant
 # Disable shared folder symlinks by default
