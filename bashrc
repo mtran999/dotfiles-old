@@ -25,17 +25,34 @@ light_cyan='\033[1;36m'
 white='\033[1;37m'
 
 # Prompt
-_errno() {
+__errno_ps1() {
+    code=$?
+    fmt=$1
+    if [ $code -eq 0 ]; then
+        printf "$green"
+        printf "$fmt" $code
+    else
+        printf "$red"
+        printf "$fmt" $code
+    fi
+    printf "$reset"
+}
+__errsym_ps1() {
     code=$?
     if [ $code -eq 0 ]; then
-        printf "$green[%03d]$reset" $code
+        printf "$green"
+        printf "[0] "
     else
-        printf "$red[%03d]$reset" $code
+        printf "$red"
+        printf "[!] "
     fi
+    printf "$reset"
 }
-PS1_errno='$(_errno)'
+#PS1_errno='$(__errno_ps1 "[%03d] ")'
+PS1_errno='$(__errsym_ps1)'
 PS1_git=$yellow'$(__git_ps1 "(%s) ")'$reset
-export PS1="$PS1_git$PS1_errno \W \$ "
+PS1_dir=$blue'\W '$reset
+export PS1="$PS1_git$PS1_errno$PS1_dir\$ "
 
 # Vagrant
 # Disable shared folder symlinks by default
