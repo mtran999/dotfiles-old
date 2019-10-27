@@ -1,8 +1,8 @@
 # Custom bashrc
 
 # Git
-#. $HOME/.dotfiles/git-completion.bash
-#. $HOME/.dotfiles/git-prompt.sh
+[ -r $HOME/.dotfiles/git-completion.bash ] && . $HOME/.dotfiles/git-completion.bash
+[ -r $HOME/.dotfiles/git-prompt.sh ] && . $HOME/.dotfiles/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 # Colors
@@ -52,11 +52,4 @@ __errsym_ps1() {
 PS1_errno='$(__errsym_ps1)'
 PS1_git=$yellow'$(__git_ps1 "(%s) ")'$reset
 PS1_dir=$blue'\W '$reset
-export PS1="$PS1_git$PS1_errno$PS1_dir\$ "
-
-# Vagrant
-# Disable shared folder symlinks by default
-#VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
-
-# Pipenv
-#export PIPENV_VENV_IN_PROJECT=1
+export PS1="\n$PS1_errno$PS1_git$PS1_dir\n\$ "

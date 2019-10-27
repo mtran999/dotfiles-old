@@ -1,17 +1,16 @@
 #!/bin/bash
 # coding: utf-8
-# mkdot.sh
+#
 # Set up symlinks for dotfiles
 
-dotfiles="vim editorconfig tmux.conf"
-gitfiles="git-completion.bash git-prompt-sh"
+dotfiles="vimrc editorconfig tmux.conf"
 
 # Check for existing dotfiles
 existing=""
 for f in $dotfiles; do
-    fn="$HOME/.$f"
-    if [ -e "$fn" ]; then
-        existing+="$fn "
+    fpath="$HOME/.$f"
+    if [ -e "$fpath" ]; then
+        existing+="$fpath "
     fi
 done
 
@@ -29,9 +28,13 @@ curdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 for f in $dotfiles; do
     from="$curdir/$f"
     to="$HOME/.$f"
+    if [ ! -r "$from" ]; then
+        echo "Error: Unable to read dotfile: $from"
+        continue
+    fi
     if ln -s "$from" "$to"; then
-        echo "Successfully symlinked: $from -> $to"
+        echo "Success: Created symlink: $from -> $to"
     else
-        echo "Unable to symlink: $from -> $to"
+        echo "Error: Unable to create symlink: $from -> $to"
     fi
 done
