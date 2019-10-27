@@ -1,5 +1,7 @@
 # Custom bashrc
 
+[ -r $HOME/.dotfiles/bash_aliases ] && . $HOME/.dotfiles/bash_aliases
+
 # Git
 [ -r $HOME/.dotfiles/git-completion.bash ] && . $HOME/.dotfiles/git-completion.bash
 [ -r $HOME/.dotfiles/git-prompt.sh ] && . $HOME/.dotfiles/git-prompt.sh
@@ -48,8 +50,14 @@ __errsym_ps1() {
     fi
     printf "$reset"
 }
+__rvm_ps1() {
+    if [ -r $HOME/.rvm/bin/rvm-prompt ]; then
+        printf "($(~/.rvm/bin/rvm-prompt)) "
+    fi
+}
 #PS1_errno='$(__errno_ps1 "[%03d] ")'
 PS1_errno='$(__errsym_ps1)'
-PS1_git=$yellow'$(__git_ps1 "(%s) ")'$reset
-PS1_dir=$blue'\W '$reset
-export PS1="\n$PS1_errno$PS1_git$PS1_dir\n\$ "
+PS1_git="$yellow"'$(__git_ps1 "(%s) ")'"$reset"
+PS1_rvm='$(__rvm_ps1)'
+PS1_dir="$blue"'\w '"$reset"
+export PS1="\n$PS1_errno$PS1_git$PS1_rvm$PS1_dir\n\$ "
