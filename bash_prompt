@@ -70,7 +70,7 @@ PS1_git="$yellow"'$(__git_ps1 "(%s) ")'"$reset"
 PS1_dir="$light_blue"'\w '"$reset"
 PS1_rvm='$(__rvm_ps1)'
 PS1_nvm='$(__nvm_ps1)'
-export PS1="$PS1_errno$PS1_git$PS1_rvm$PS1_nvm$PS1_dir\n\$ "
+export PS1="$PS1_errno$PS1_git$PS1_rvm$PS1_dir\n\$ "
 
 # Print newline before each prompt
 # If we add a '\n' newline char to the PS1 string, it causes issues when scripts
