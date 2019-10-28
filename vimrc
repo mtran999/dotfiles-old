@@ -12,7 +12,13 @@
 "   noexpandtab (noet) - Pressing TAB inserts actual tab
 "   smarttab - Pressing TAB indents to the next tabstop when at the
 "              beginning of a line
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
+"set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
+let tabsize = 2
+execute "set tabstop=".tabsize
+execute "set shiftwidth=".tabsize
+execute "set softtabstop=".tabsize
+set expandtab
+set smarttab
 set autoindent
 
 colorscheme desert
