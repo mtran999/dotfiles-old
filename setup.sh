@@ -4,7 +4,7 @@
 # Set up symlinks for dotfiles
 
 # Update this list with new dotfiles
-dotfiles="vimrc editorconfig tmux.conf"
+dotfiles="vimrc editorconfig tmux.conf bash_aliases"
 
 curdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 

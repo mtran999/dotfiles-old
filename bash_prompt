@@ -1,11 +1,4 @@
-# Custom bashrc
-
-[ -r $HOME/.dotfiles/bash_aliases ] && . $HOME/.dotfiles/bash_aliases
-
-# Git
-[ -r $HOME/.dotfiles/git-completion.bash ] && . $HOME/.dotfiles/git-completion.bash
-[ -r $HOME/.dotfiles/git-prompt.sh ] && . $HOME/.dotfiles/git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
+# Custom bash prompt config
 
 # Colors
 reset='\033[0m'
@@ -25,6 +18,11 @@ light_blue='\033[1;34m'
 light_purple='\033[1;35m'
 light_cyan='\033[1;36m'
 white='\033[1;37m'
+
+# Git
+[ -r $HOME/.dotfiles/git-completion.bash ] && . $HOME/.dotfiles/git-completion.bash
+[ -r $HOME/.dotfiles/git-prompt.sh ] && . $HOME/.dotfiles/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 # Prompt
 __errno_ps1() {
@@ -63,4 +61,10 @@ PS1_errno='$(__errsym_ps1)'
 PS1_git="$yellow"'$(__git_ps1 "(%s) ")'"$reset"
 PS1_rvm='$(__rvm_ps1)'
 PS1_dir="$light_blue"'\w '"$reset"
-export PS1="\n$PS1_errno$PS1_git$PS1_rvm$PS1_dir\n\$ "
+export PS1="$PS1_errno$PS1_git$PS1_rvm$PS1_dir\n\$ "
+
+# Print newline before each prompt
+# If we add a '\n' newline char to the PS1 string, it causes issues when scripts
+# like pyenv prepend stuff to the prompt. If we define it this way, we get a
+# newline before the prepended prompt stuff.
+export PROMPT_COMMAND="echo"
