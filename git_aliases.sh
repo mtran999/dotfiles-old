@@ -18,6 +18,7 @@ git_alias() {
 #git config --glboal alias."rf" "!git reset --hard HEAD && git clean -d -f"
 
 git_alias "s" "status"
+git_alias "d" "diff"
 git_alias "a" "add"
 git_alias "aa" "add -A"
 git_alias "cm" "commit"
