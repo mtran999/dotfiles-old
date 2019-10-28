@@ -52,7 +52,10 @@ __errsym_ps1() {
 }
 __rvm_ps1() {
     if [ -r $HOME/.rvm/bin/rvm-prompt ]; then
-        printf "($(~/.rvm/bin/rvm-prompt)) "
+        local prompt=$(~/.rvm/bin/rvm-prompt)
+        if [ ! -z "$prompt" ]; then
+            printf "($prompt) "
+        fi
     fi
 }
 #PS1_errno='$(__errno_ps1 "[%03d] ")'
