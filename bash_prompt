@@ -56,12 +56,21 @@ __rvm_ps1() {
         fi
     fi
 }
+__nvm_ps1() {
+  if command -v nvm >/dev/null; then
+    local version=$(nvm current)
+    if [ ! -z "$version" ]; then
+      printf "(node $version) "
+    fi
+  fi
+}
 #PS1_errno='$(__errno_ps1 "[%03d] ")'
 PS1_errno='$(__errsym_ps1)'
 PS1_git="$yellow"'$(__git_ps1 "(%s) ")'"$reset"
-PS1_rvm='$(__rvm_ps1)'
 PS1_dir="$light_blue"'\w '"$reset"
-export PS1="$PS1_errno$PS1_git$PS1_rvm$PS1_dir\n\$ "
+PS1_rvm='$(__rvm_ps1)'
+PS1_nvm='$(__nvm_ps1)'
+export PS1="$PS1_errno$PS1_git$PS1_rvm$PS1_nvm$PS1_dir\n\$ "
 
 # Print newline before each prompt
 # If we add a '\n' newline char to the PS1 string, it causes issues when scripts
