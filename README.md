@@ -24,3 +24,6 @@ To use the custom bash prompt, add this line to ~/.bashrc (on Linux) or
 ```
 [ -r $HOME/.dotfiles/bash_prompt ] && . $HOME/.dotfiles/bash_prompt
 ```
+
+### 4. Git Aliases
+To add some convenient git aliases, run the provided `git_aliases.sh` script.
