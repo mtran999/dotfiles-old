@@ -38,8 +38,7 @@ __errno_ps1() {
     printf "$reset"
 }
 __errsym_ps1() {
-    code=$?
-    if [ $code -eq 0 ]; then
+    if [ -z $ERRNO ] || [ $ERRNO -eq 0 ]; then
         printf "$light_green"
         printf "[0] "
     else
@@ -50,9 +49,9 @@ __errsym_ps1() {
 }
 __rvm_ps1() {
     if [ -r $HOME/.rvm/bin/rvm-prompt ]; then
-        local prompt=$(~/.rvm/bin/rvm-prompt)
-        if [ ! -z "$prompt" ]; then
-            printf "($prompt) "
+        local gemset=$(~/.rvm/bin/rvm-prompt g)
+        if [ ! -z "$gemset" ]; then
+            printf "($gemset) "
         fi
     fi
 }
@@ -70,10 +69,10 @@ PS1_git="$yellow"'$(__git_ps1 "(%s) ")'"$reset"
 PS1_dir="$light_blue"'\w '"$reset"
 PS1_rvm='$(__rvm_ps1)'
 PS1_nvm='$(__nvm_ps1)'
-export PS1="$PS1_errno$PS1_git$PS1_rvm$PS1_dir\n\$ "
+export PS1="$PS1_rvm$PS1_dir$PS1_git$PS1_errno\n\$ "
 
 # Print newline before each prompt
 # If we add a '\n' newline char to the PS1 string, it causes issues when scripts
 # like pyenv prepend stuff to the prompt. If we define it this way, we get a
 # newline before the prepended prompt stuff.
-export PROMPT_COMMAND="echo"
+export PROMPT_COMMAND='export ERRNO=$?; echo'
