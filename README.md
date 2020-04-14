@@ -1,5 +1,7 @@
 # dotfiles
 
+Update 2020-04-13: Deprecated in favor of new dotfile repo.
+
 ## Description
 This repo is mostly for personal use. But anyone is free to use this stuff.
 
